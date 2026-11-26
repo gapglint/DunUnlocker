@@ -41,7 +41,7 @@ internal fun AppInfoDialog(
         onDismissRequest = onDismiss,
         icon = {
             Icon(
-                painter = painterResource(R.drawable.ic_launcher_foreground),
+                painter = painterResource(R.drawable.ic_launcher_monochrome),
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.size(64.dp)

@@ -176,4 +176,34 @@
     <string name="apn_named_copy_unsupported">This APN profile does not support making a separate copy while preserving the original.</string>
     <string name="apn_named_copy_exists">A separate profile with the same carrier and APN settings already exists. Check the existing entries.</string>
     <string name="apn_named_copy_unverified">Could not verify the separate APN. Check the original and the copy in system Settings before trying again.</string>
+
+    <!-- Local Tethering Proxy -->
+    <string name="proxy_card_title">Tethering Proxy (TTL Bypass)</string>
+    <string name="proxy_card_subtitle">Built-in HTTP/HTTPS &amp; SOCKS5 proxy + setup portal (No root/Shizuku)</string>
+    <string name="proxy_port_label">Proxy port</string>
+    <string name="proxy_port_hint">1024–65535 (default: %d)</string>
+    <string name="proxy_invalid_port">Enter a valid port between 1024 and 65535.</string>
+    <string name="proxy_active_status">Running · %d active connections</string>
+    <string name="proxy_device_ip_label">Device tethering / LAN IP</string>
+    <string name="proxy_ip_interface_format">%1$s · %2$s</string>
+    <string name="proxy_ip_not_detected">Turn on Hotspot or USB Tethering to see IP</string>
+    <string name="proxy_kind_hotspot">Hotspot</string>
+    <string name="proxy_kind_usb">USB Tethering</string>
+    <string name="proxy_kind_bluetooth">Bluetooth Tethering</string>
+    <string name="proxy_kind_wifi">Wi-Fi / LAN</string>
+    <string name="proxy_kind_other">Local</string>
+    <string name="proxy_refresh_ip">Refresh IP addresses</string>
+    <string name="proxy_portal_url_label">Setup web portal (open on connected PC/device)</string>
+    <string name="proxy_pac_url_label">Auto proxy URL (PAC)</string>
+    <string name="proxy_manual_addr_label">Manual proxy (HTTP / SOCKS5)</string>
+    <string name="proxy_extra_ips">Other local addresses: %s</string>
+    <string name="proxy_no_hotspot_ip">Listening on port %d. Turn on Mobile Hotspot or USB Tethering, then tap refresh.</string>
+    <string name="proxy_setup_guide">Open the setup URL on a connected device and pick ONE method: TTL=65 (recommended for PC/games/UDP, no proxy needed afterward) or Proxy (for iOS/iPadOS or PCs without admin rights).</string>
+    <string name="proxy_copied_message">Copied: %s</string>
+    <string name="proxy_start_failed">Failed to start proxy: %s</string>
+    <string name="proxy_notification_channel">Tethering Proxy</string>
+    <string name="proxy_notification_title">Tethering Proxy Running</string>
+    <string name="proxy_notification_address">Setup portal: %s (HTTP/SOCKS5)</string>
+    <string name="proxy_notification_waiting">Listening on port %d (waiting for hotspot/tethering)</string>
+    <string name="proxy_stop_action">Stop</string>
 </resources>

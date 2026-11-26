@@ -175,4 +175,34 @@
     <string name="apn_named_copy_unsupported">이 APN의 프로필은 원본을 유지한 별도 복사를 지원하지 않습니다.</string>
     <string name="apn_named_copy_exists">통신사와 APN 설정이 같은 별도 프로필이 이미 있습니다. 기존 항목을 확인하세요.</string>
     <string name="apn_named_copy_unverified">별도 APN이 정상적으로 만들어졌는지 확인하지 못했습니다. 다시 시도하기 전에 시스템 설정에서 원본과 복사본을 확인하세요.</string>
+
+    <!-- Local Tethering Proxy -->
+    <string name="proxy_card_title">테더링 프록시 (TTL 우회)</string>
+    <string name="proxy_card_subtitle">내장 HTTP/HTTPS · SOCKS5 프록시 및 원클릭 셋업 포털 (비루팅)</string>
+    <string name="proxy_port_label">프록시 포트</string>
+    <string name="proxy_port_hint">1024–65535 (기본값: %d)</string>
+    <string name="proxy_invalid_port">포트 번호는 1024~65535 사이로 입력해주세요.</string>
+    <string name="proxy_active_status">실행 중 · 활성 연결 %d개</string>
+    <string name="proxy_device_ip_label">기기 테더링 / 로컬 IP</string>
+    <string name="proxy_ip_interface_format">%1$s · %2$s</string>
+    <string name="proxy_ip_not_detected">핫스팟 또는 USB 테더링을 켜면 IP가 표시됩니다</string>
+    <string name="proxy_kind_hotspot">핫스팟</string>
+    <string name="proxy_kind_usb">USB 테더링</string>
+    <string name="proxy_kind_bluetooth">블루투스 테더링</string>
+    <string name="proxy_kind_wifi">Wi-Fi / LAN</string>
+    <string name="proxy_kind_other">로컬</string>
+    <string name="proxy_refresh_ip">IP 주소 새로고침</string>
+    <string name="proxy_portal_url_label">셋업 웹페이지 (연결된 PC/기기 브라우저에서 접속)</string>
+    <string name="proxy_pac_url_label">자동 프록시 주소 (PAC)</string>
+    <string name="proxy_manual_addr_label">수동 프록시 (HTTP / SOCKS5)</string>
+    <string name="proxy_extra_ips">추가 로컬 주소: %s</string>
+    <string name="proxy_no_hotspot_ip">포트 %d 대기 중입니다. 핫스팟 또는 USB 테더링을 켠 뒤 새로고침하세요.</string>
+    <string name="proxy_setup_guide">연결된 기기에서 셋업 웹페이지에 접속해 둘 중 하나만 적용하세요. PC·게임(UDP)은 TTL=65 권장(적용 후 프록시 불필요), 프록시는 TTL 변경 불가 기기(iOS/권한 없는 PC)용입니다.</string>
+    <string name="proxy_copied_message">복사됨: %s</string>
+    <string name="proxy_start_failed">프록시 시작 실패: %s</string>
+    <string name="proxy_notification_channel">테더링 프록시</string>
+    <string name="proxy_notification_title">테더링 프록시 실행 중</string>
+    <string name="proxy_notification_address">셋업 포털: %s (HTTP/SOCKS5)</string>
+    <string name="proxy_notification_waiting">포트 %d 대기 중 (핫스팟/테더링 연결 대기)</string>
+    <string name="proxy_stop_action">중지</string>
 </resources>

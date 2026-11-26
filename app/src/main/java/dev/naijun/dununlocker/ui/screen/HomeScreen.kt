@@ -24,6 +24,7 @@ import dev.naijun.dununlocker.data.SimInfo
 import dev.naijun.dununlocker.ui.components.ApnConfigSection
 import dev.naijun.dununlocker.ui.components.ShizukuStatusCard
 import dev.naijun.dununlocker.ui.components.SimSelectionCard
+import dev.naijun.dununlocker.ui.components.TetheringProxyCard
 import dev.naijun.dununlocker.ui.model.ApnRequest
 import dev.naijun.dununlocker.ui.model.execute
 import dev.naijun.dununlocker.ui.model.successMessageRes
@@ -178,6 +179,14 @@ fun HomeScreen() {
                         }
                     }
                 }
+
+                TetheringProxyCard(
+                    onMessage = { msg ->
+                        scope.launch {
+                            snackbarHostState.showSnackbar(msg, duration = SnackbarDuration.Short)
+                        }
+                    }
+                )
             }
 
             if (isLoading) {

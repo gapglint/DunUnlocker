@@ -1,10 +1,22 @@
 import com.android.build.api.variant.impl.VariantOutputImpl
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.lsparanoid)
 }
+
+val localProps = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.isFile) {
+        file.inputStream().use(::load)
+    }
+}
+
+fun signingProp(envKey: String, localKey: String): String? =
+    System.getenv(envKey)?.takeIf { it.isNotBlank() }
+        ?: localProps.getProperty(localKey)?.takeIf { it.isNotBlank() }
 
 android {
     namespace = "dev.naijun.dununlocker"
@@ -13,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "dev.naijun.dununlocker"
+        applicationId = "com.gapglint.dununlocker"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = libs.versions.versionCode.get().toInt()
@@ -22,10 +34,34 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    val keystorePath = signingProp("SIGNING_KEYSTORE_PATH", "signing.keystorePath")
+    val storePasswordValue = signingProp("SIGNING_STORE_PASSWORD", "signing.storePassword")
+    val keyAliasValue = signingProp("SIGNING_KEY_ALIAS", "signing.keyAlias")
+    val keyPasswordValue = signingProp("SIGNING_KEY_PASSWORD", "signing.keyPassword")
+    val hasReleaseSigning = keystorePath != null &&
+        storePasswordValue != null &&
+        keyAliasValue != null &&
+        keyPasswordValue != null &&
+        file(keystorePath).isFile
+
+    signingConfigs {
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = file(keystorePath!!)
+                storePassword = storePasswordValue
+                keyAlias = keyAliasValue
+                keyPassword = keyPasswordValue
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -50,7 +86,7 @@ android {
                     val buildType = variant.buildType
 
                     if (buildType == "release") {
-                        output.outputFileName = "dununlocker-v${versionName}-${buildType}.apk"
+                        output.outputFileName = "dununlocker-gapglint-v${versionName}-${buildType}.apk"
                     }
                 }
         }

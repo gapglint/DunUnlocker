@@ -2,9 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <instrumentation
         android:name="dev.naijun.dununlocker.BrokerInstrumentation"
-        android:targetPackage="dev.naijun.dununlocker"/>
+        android:targetPackage="${applicationId}"/>
 
     <application
         android:allowBackup="true"
@@ -33,6 +39,14 @@
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+        <service
+            android:name=".proxy.TetheringProxyService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Local HTTP and SOCKS5 tethering proxy server for connected LAN and hotspot devices" />
+        </service>
     </application>
 
 </manifest>

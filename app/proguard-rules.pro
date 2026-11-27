@@ -35,6 +35,7 @@
 -dontwarn com.android.internal.telephony.**
 
 -keep class dev.naijun.dununlocker.BrokerInstrumentation { *; }
+-keep class dev.naijun.dununlocker.proxy.TetheringProxyService { *; }
 
 -assumenosideeffects class android.util.Log {
     public static *** d(...);
